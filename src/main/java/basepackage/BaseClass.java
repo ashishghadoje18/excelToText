@@ -92,7 +92,7 @@ public class BaseClass {
 		} 
 		catch(NumberFormatException e)
 		{
-			System.out.println("Exception while parsing property for col name from property file.");
+			System.out.println("Exception while parsing sheet named: " + sheetName + " while parsing property for given column name from property file.");
 			e.printStackTrace();
 		}
 		finally
@@ -128,8 +128,7 @@ public class BaseClass {
 	public static void main(String[] args) throws IOException {
 		
 		excelToTxt("header");
-		excelToTxt("detailRecord");
-		
+		excelToTxt("detailRecord");	
 		
 	}
 
