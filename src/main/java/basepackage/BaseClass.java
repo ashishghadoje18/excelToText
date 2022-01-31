@@ -8,6 +8,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.util.Objects;
 import java.util.Properties;
 
 import org.apache.poi.ss.usermodel.DataFormatter;
@@ -106,12 +107,8 @@ public class BaseClass {
 	
 	  public static String formatString(String s, int reqdSize)
 	    {
-		  	if(s == null)
-		  	{
-	        	throw new NullPointerException("Exception in sheet : String is null.");
-		  	}
 		  	String output = "";
-	        StringBuffer sbuffer = new StringBuffer(s.trim());
+	        StringBuffer sbuffer = new StringBuffer(Objects.requireNonNull(s, "String value should not be null.").trim());
 	        int orgLen = sbuffer.length();
 	       
 	        if(orgLen > reqdSize)
