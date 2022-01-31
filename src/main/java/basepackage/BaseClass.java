@@ -19,12 +19,13 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 public class BaseClass {
 	
 	private static String excelPath = 
-			System.getProperty("user.dir") + "\\src\\main\\\\java\\files\\data.xlsx"; //Enter path of Excel
+			System.getProperty("user.dir") + "\\src\\main\\java\\files\\data.xlsx"; //Enter path of Excel
 	
 	private static String propPath = 
-			System.getProperty("user.dir") + "\\src\\main\\java\\\\basepackage\\config.properties";
+			System.getProperty("user.dir") + "\\src\\main\\java\\basepackage\\config.properties";
 	
-	private static String txtpath = System.getProperty("user.dir") + "\\src\\main\\java\\files\\data.txt";
+	private static String txtpath = 
+			System.getProperty("user.dir") + "\\src\\main\\java\\files\\data.txt";
 	
 	public static void excelToTxt(String sheetName)
 	{
@@ -105,6 +106,11 @@ public class BaseClass {
 	
 	  public static String formatString(String s, int reqdSize)
 	    {
+		  	if(s == null)
+		  	{
+		  		System.out.println("Exception in sheet : String is null.");
+	        	throw new NullPointerException();
+		  	}
 		  	String output = "";
 	        StringBuffer sbuffer = new StringBuffer(s.trim());
 	        int orgLen = sbuffer.length();
@@ -119,7 +125,7 @@ public class BaseClass {
 		        int spacesReqd = reqdSize - orgLen;
 		        output = sbuffer + " ".repeat(spacesReqd);
 	        }
-	       
+
 	        return output;
 
 	    }
@@ -129,6 +135,7 @@ public class BaseClass {
 		
 		excelToTxt("header");
 		excelToTxt("detailRecord");	
+
 		
 	}
 
