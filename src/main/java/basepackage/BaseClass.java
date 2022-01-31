@@ -19,7 +19,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 public class BaseClass {
 	
 	private static String excelPath = 
-			System.getProperty("user.dir") + "\\src\\main\\java\\files\\data.xlsx"; //Enter path of Excel
+			System.getProperty("user.dir") + "\\src\\main\\java\\files\\data.xlsx";
 	
 	private static String propPath = 
 			System.getProperty("user.dir") + "\\src\\main\\java\\basepackage\\config.properties";
@@ -108,8 +108,7 @@ public class BaseClass {
 	    {
 		  	if(s == null)
 		  	{
-		  		System.out.println("Exception in sheet : String is null.");
-	        	throw new NullPointerException();
+	        	throw new NullPointerException("Exception in sheet : String is null.");
 		  	}
 		  	String output = "";
 	        StringBuffer sbuffer = new StringBuffer(s.trim());
@@ -127,15 +126,12 @@ public class BaseClass {
 	        }
 
 	        return output;
-
 	    }
-
 	
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args){
 		
 		excelToTxt("header");
 		excelToTxt("detailRecord");	
-
 		
 	}
 
